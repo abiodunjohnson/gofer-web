@@ -9,6 +9,10 @@ body {
   user-select: none;
 }
 
+.btn {
+  border-radius: 10px;
+}
+
 .navbar {
   justify-self: self-start;
 }
@@ -86,6 +90,7 @@ body {
 
 .cardline {
   display: flex;
+  position: relative;
   justify-content: center;
   background-color: #eef6f9;
   -webkit-box-shadow: 0px 6px 20px 25px rgba(0, 0, 0, 0.08);
@@ -95,8 +100,53 @@ body {
 }
 
 .bold-title {
-  font-weight: 900;
+  font-weight: 400;
   text-align: center;
+}
+
+.label-title {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.posted {
+  font-size: 13px;
+  color: #b90000;
+  margin-bottom: 5px;
+}
+
+.no-activity,
+.rejected {
+  font-size: 13px;
+  color: #b90000;
+  margin-bottom: 5px;
+}
+
+.you-accepted {
+  font-size: 13px;
+  color: #0b8e13;
+  margin-bottom: 5px;
+}
+
+.pending {
+  font-size: 13px;
+  color: #0086b9;
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.accepted {
+  font-style: italic;
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #0b8e13;
+}
+
+.time {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 13px;
+  margin-bottom: 0px;
 }
 
 .activity-story {
@@ -105,32 +155,61 @@ body {
   text-align: center;
   color: #7a7c7e;
   font-size: 20px;
+  font-style: italic;
   font-weight: 100;
 }
 
 .card-items {
-  margin: 1em;
+  margin: -01em 1em;
   padding: 2em;
 }
 
-p.card-item {
+.shadow:hover {
+  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.3) !important;
+  color: black;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-item {
   display: inline-block;
-  padding: 0.7em 2em;
-  margin: 0.7em 1em;
+  background: transparent;
+  padding: 0.7em 1.5em;
+  margin: 0.7em 0.5em;
   border-radius: 10px;
-  -webkit-box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.75);
-  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 8px rgba(81, 81, 81, 0.26), -3px -3px 6px rgba(209, 233, 242, 0.44) !important;
   cursor: pointer;
 }
 
-p.card-item:hover {
-  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.3);
+.card-item:hover {
+  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.3) !important;
+  color: white;
+  transition: all 0.2s ease-in-out;
+  background-color: #0086b9;
 }
 
+.top-down {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100px;
+  overflow-y: hidden;
+}
 .material-icons {
   vertical-align: middle;
   margin-top: -2px;
+  color: #999999;
+}
+
+.card-item:hover .material-icons {
+  color: white;
+}
+
+.card {
+  height: 200px;
+}
+
+.card:hover {
+  cursor: pointer;
 }
 
 button:focus,
@@ -227,6 +306,10 @@ select:focus {
   margin-left: -300%;
 }
 
+.submit-input {
+  position: absolute;
+  top: 80%;
+}
 @media (max-width: 576px) {
   .banner {
     display: none;
@@ -251,16 +334,17 @@ header {
   box-shadow: 0 0.5rem 0.5rem rgba(203, 240, 253, 0.8);
 }
 
-.nav-link.errand {
+.nav-link.active {
   color: #0086b9 !important;
   position: relative;
 }
 
-.nav-link.errand {
+.nav-link.active {
   position: relative;
   line-height: 2rem;
+  margin-top: -4px;
 }
-.nav-link.errand:before {
+.nav-link.active:before {
   position: absolute;
   left: 25px;
   bottom: 0.5rem;
@@ -273,6 +357,10 @@ header {
 .notification-box {
   position: relative;
   margin-right: 2rem;
+}
+
+.notification-box:hover {
+  cursor: pointer;
 }
 
 .notification {
@@ -291,19 +379,37 @@ header {
   border: 2px solid white;
 }
 
+.user-box:hover {
+  cursor: pointer;
+  color: #aaaaaa;
+}
 .profile-picture {
   width: 40px;
+  height: 40px;
   margin-right: 5px;
   border-radius: 50%;
 }
 
+.user-name {
+  font-weight: 600;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.errand-details {
+  font-weight: 100;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+  font-style: italic;
+}
+
 .poster-picture {
   width: 40px;
+  height: 40px;
   margin-right: 10px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center right;
-  height: 40px;
+  object-position: center center;
 }
 
 .poster-info {
@@ -333,7 +439,6 @@ header {
 
 .container-fluid.errand {
   background-color: #eef6f9;
-  height: 100vh;
 }
 
 .errands-main {
@@ -342,7 +447,7 @@ header {
 
 .sidebar {
   display: block;
-  position: absolute;
+  float: left;
   top: 90px;
   bottom: 0;
   width: 300px;
@@ -351,7 +456,6 @@ header {
 .side-box {
   background-color: white;
   width: 290px;
-  height: 200px;
   margin-bottom: 1rem;
 }
 
@@ -359,6 +463,22 @@ header {
   margin-left: 300px;
   margin-top: 5px;
   padding-left: 0.4rem;
+}
+
+.divide {
+  display: flex;
+}
+
+.split {
+  justify-content: space-between;
+}
+
+.down {
+  flex-direction: column;
+}
+
+.full-height {
+  height: 100vh;
 }
 
 .container.errand {
@@ -394,4 +514,71 @@ header {
   .card-columns {
     column-count: 3 !important;
   }
+}
+
+@media (max-width: 685px) {
+  .sidebar {
+    display: none;
+  }
+  .main-body {
+    margin-left: 1rem;
+  }
+}
+/* POST ERRAND */
+.mini-map {
+}
+.map-progress {
+  display: flex;
+}
+
+.map {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.sub-map {
+  margin-left: -3rem;
+}
+
+.circle-filled {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: lightgray;
+  border: 7px solid #0086b9;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 2rem;
+}
+
+.circle-empty {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #eef6f9;
+  border: 5px solid lightgray;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 2rem;
+  z-index: 3;
+}
+
+.progress-line {
+  min-width: 150px;
+  border-bottom: 2px solid lightgray;
+  margin-bottom: 26px;
+  margin-left: -5px;
+  display: inline-block;
+  z-index: 0;
+}
+
+.progress-line-filled {
+  min-width: 150px;
+  border-bottom: 2px solid #0086b9;
+  margin-bottom: 26px;
+  margin-left: -5px;
+  display: inline-block;
+  z-index: 0;
+}
+.min-map {
+  margin: 1rem;
+  padding-left: 2.7rem;
 }
