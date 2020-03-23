@@ -5,8 +5,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Muli", sans-serif;
-  height: 100%;
   user-select: none;
+  background: #eef6f9;
 }
 
 .btn {
@@ -15,15 +15,23 @@ body {
 
 .navbar {
   justify-self: self-start;
+  background: #eef6f9;
+  box-shadow: 0 0.5rem 0.8rem rgba(182, 233, 252, 0.4);
+}
+
+.hourglass {
+  font-size: 22px;
 }
 
 .nav-item {
   padding-right: 40px;
-  font-weight: 600;
+  font-weight: 400;
+  cursor: pointer !important;
+  font-size: 18px;
 }
 
-.nav-link {
-  color: white;
+a.nav-link {
+  color: #111111;
 }
 
 .container-fluid.p-0 {
@@ -67,6 +75,7 @@ body {
 .banner {
   display: flex;
   align-items: center;
+  margin-top: 8rem;
 }
 
 .jumbotron .lead {
@@ -106,9 +115,17 @@ body {
 
 .label-title {
   font-size: 18px;
-  margin-top: 5px;
+  margin-top: 1rem;
 }
 
+.no-outline:focus,
+.no-outline {
+  outline: none !important;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
 .posted {
   font-size: 13px;
   color: #b90000;
@@ -144,9 +161,10 @@ body {
 
 .time {
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.4);
   font-size: 13px;
   margin-bottom: 0px;
+  letter-spacing: 0.1px;
 }
 
 .activity-story {
@@ -160,14 +178,20 @@ body {
 }
 
 .card-items {
-  margin: -01em 1em;
-  padding: 2em;
+  max-width: 1030px;
 }
 
-.shadow:hover {
-  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.3) !important;
-  color: black;
-  transition: all 0.2s ease-in-out;
+.text-insert {
+  max-width: 600px;
+}
+
+.card.bg-white {
+  border-width: 0;
+}
+
+.card-text {
+  height: 72px;
+  overflow: hidden;
 }
 
 .card-item {
@@ -175,16 +199,22 @@ body {
   background: transparent;
   padding: 0.7em 1.5em;
   margin: 0.7em 0.5em;
+  font-weight: bold;
   border-radius: 10px;
   box-shadow: 4px 4px 8px rgba(81, 81, 81, 0.26), -3px -3px 6px rgba(209, 233, 242, 0.44) !important;
   cursor: pointer;
+  width: 220px;
 }
 
-.card-item:hover {
-  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.3) !important;
-  color: white;
-  transition: all 0.2s ease-in-out;
-  background-color: #0086b9;
+.card-item-2 {
+  width: calc(440px + 1.25em) !important;
+}
+
+.card.bg-white:hover {
+  -webkit-box-shadow: 0px 0px 34px -15px rgba(173, 230, 230, 0.44);
+  -moz-box-shadow: 0px 0px 34px -15px rgba(0, 0, 0, 0.44);
+  box-shadow: 0px 0px 34px -15px rgb(125, 156, 167);
+  transition: all 0.2s ease-in;
 }
 
 .top-down {
@@ -204,6 +234,13 @@ body {
   color: white;
 }
 
+.card-item:hover {
+  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.3) !important;
+  color: white;
+  transition: all 0.2s ease-in-out;
+  background-color: #0086b9;
+}
+
 .card {
   height: 200px;
 }
@@ -217,6 +254,11 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
+}
+
+.main-body.top {
+  z-index: 5;
+  margin-top: -2rem;
 }
 
 .tabs {
@@ -330,8 +372,15 @@ select:focus {
 /* ERRANDS PAGE */
 
 header {
-  background: #eef6f9;
-  box-shadow: 0 0.5rem 0.5rem rgba(203, 240, 253, 0.8);
+  position: fixed;
+  width: 100vw;
+  z-index: 10;
+}
+
+.ongoing-errands-title {
+  width: 100%;
+  position: sticky;
+  top: 0;
 }
 
 .nav-link.active {
@@ -346,12 +395,22 @@ header {
 }
 .nav-link.active:before {
   position: absolute;
-  left: 25px;
+  left: 26px;
   bottom: 0.5rem;
   height: 0;
   width: 50px;
   content: "";
-  border-top: 3px solid #0086b9;
+  border-top: 2px solid #0086b9;
+}
+
+.nav-link.profile.active:before {
+  left: 20px;
+  width: 30px;
+}
+
+.nav-link.wallet.active:before {
+  left: 20px;
+  width: 30px;
 }
 
 .notification-box {
@@ -390,12 +449,24 @@ header {
   border-radius: 50%;
 }
 
-.user-name {
-  font-weight: 600;
-  margin: 0;
-  color: rgba(0, 0, 0, 0.7);
+.profile-picture-inner {
+  width: 35px;
+  height: 35px;
+  margin-right: 5px;
+  border-radius: 50%;
 }
 
+.user-name,
+.errand-type {
+  font-weight: 600;
+  margin: 0;
+  color: rgba(0, 0, 0, 1);
+  font-size: 14.5px;
+}
+
+a:hover {
+  text-decoration: none;
+}
 .errand-details {
   font-weight: 100;
   font-size: 12px;
@@ -419,12 +490,16 @@ header {
 .poster-name {
   font-weight: bolder;
   margin-bottom: 0;
+  color: #222222;
 }
 
 .location {
-  display: inline-block;
-  font-weight: bolder;
-  color: #999999;
+  display: block;
+  font-weight: bold;
+  color: #bbbbbb;
+  margin-left: 1.5rem;
+  font-size: 12px;
+  margin-top: 3px !important;
 }
 
 .category .material-icons {
@@ -442,27 +517,103 @@ header {
 }
 
 .errands-main {
-  padding: 1rem;
+  padding: 3rem 1rem;
 }
 
 .sidebar {
   display: block;
+  position: fixed;
   float: left;
   top: 90px;
   bottom: 0;
-  width: 300px;
+  height: 90vh;
+  width: 360px;
+  margin-left: 1rem;
 }
 
 .side-box {
   background-color: white;
-  width: 290px;
-  margin-bottom: 1rem;
+  width: 330px;
+  margin-bottom: -4px;
+  z-index: -3;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  min-height: 350px;
+  /* overflow: auto; */
+}
+
+.side-box.top {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+.side-box.top {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+.side-box.bottom {
+  border: none;
+  border-top: 2px solid lightgray;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.scrollbox {
+  max-height: 280px;
+  border-radius: 5px;
+  overflow-y: scroll;
+  cursor: grab;
+}
+
+.scrollbox:active {
+  cursor: grabbing;
 }
 
 .main-body {
-  margin-left: 300px;
-  margin-top: 5px;
+  margin-left: 370px;
+  margin-top: 4rem;
   padding-left: 0.4rem;
+}
+
+.main-input {
+  border-style: solid !important;
+  /* border-width: 1px !important; */
+  border-color: lightblue !important;
+  border-top-width: 1px !important;
+  border-bottom-width: 1px !important;
+  border-left-width: 1px !important;
+  border-right-width: 1px !important;
+  border-radius: 15px !important;
+}
+
+.form-group.preview {
+  max-width: 600px;
+}
+
+.preview-box {
+  background: rgb(250, 250, 250);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  max-width: 800px;
+}
+
+.selected-category,
+.selected-location,
+.selected-information,
+.selected-payment {
+  margin-left: 1rem;
+  margin-top: -15px;
+  font-weight: bold;
+}
+
+.sub-title {
+  margin-top: -1.2rem;
+  font-size: 14px;
+  margin-left: 1rem;
+  color: #aaaaaa;
+  font-weight: 100;
 }
 
 .divide {
@@ -484,6 +635,7 @@ header {
 .container.errand {
   margin: 0;
   padding: 0;
+  max-width: 1240px;
 }
 
 .card-bottom {
@@ -499,7 +651,7 @@ header {
 }
 
 .bluetext {
-  color: #0086b9;
+  color: #0086b9 !important;
 }
 
 .category {
@@ -516,17 +668,15 @@ header {
   }
 }
 
-@media (max-width: 685px) {
+@media (max-width: 1085px) {
   .sidebar {
     display: none;
   }
   .main-body {
-    margin-left: 1rem;
+    margin: 4rem auto !important;
   }
 }
 /* POST ERRAND */
-.mini-map {
-}
 .map-progress {
   display: flex;
 }
@@ -550,6 +700,81 @@ header {
   margin-left: 2rem;
 }
 
+.container.profile {
+  margin-top: 7rem !important;
+}
+
+.user-picture {
+  position: relative;
+}
+
+.verified-logo {
+  position: absolute;
+  color: #0086b9;
+  top: 65%;
+  left: 90px;
+}
+
+.verified-logo.material-icons {
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+.pix-wrapper {
+  width: 110px;
+  background-color: transparent;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+.user-profile-card {
+  height: 380px;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0px 0px 34px -15px rgb(125, 156, 167);
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.user-review {
+  box-shadow: 0px 0px 34px -15px rgb(125, 156, 167);
+  padding: 1rem 1.5rem;
+  background-color: white;
+  margin-top: 1rem;
+}
+
+.dash-titles {
+  font-weight: bolder;
+  color: #bbbbbb;
+  margin-bottom: 1rem;
+}
+
+.review-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid lightblue;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.chat-panel {
+  min-width: 350px;
+  height: 380px;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0px 0px 34px -15px rgb(125, 156, 167);
+  padding: 1rem;
+  min-height: 85vh;
+  position: fixed;
+}
+
+.chatbox {
+  position: absolute;
+  bottom: 1.5rem;
+}
 .circle-empty {
   width: 1.5rem;
   height: 1.5rem;
@@ -580,5 +805,130 @@ header {
 }
 .min-map {
   margin: 1rem;
-  padding-left: 2.7rem;
+}
+
+/* The container */
+.container-check {
+  display: block;
+  position: relative;
+  margin-top: 2rem;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  vertical-align: middle;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container-check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border-radius: 2px;
+  background-color: #ccc;
+}
+
+/* On mouse-over, add a grey background color */
+.container-check:hover input ~ .checkmark {
+  background-color: #ddd;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-check input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container-check input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-check .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.modal-header .close {
+  position: absolute;
+  right: -1rem;
+  top: -1.3rem;
+  background-color: white;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  line-height: 3px;
+  border-radius: 50%;
+  margin: 0;
+  opacity: 1;
+  padding: 0;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.xl-txt {
+  font-size: 4rem !important;
+}
+
+.modal-header .close:hover {
+  color: red;
+  opacity: 1 !important;
+}
+
+.verify-msg {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: whitesmoke;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0084b9a2;
+  border-radius: 5px;
+  display: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  display: block;
+}
+/* PROFILE PAGE */
+
+.user-card .divide.split {
+  margin-left: 3px;
+  margin-right: 3px;
 }
