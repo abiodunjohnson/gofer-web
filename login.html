@@ -41,7 +41,7 @@
                     <div class="login-btn-block">
                         <a href="./errands.html" class="btn-login">Login</a>
                     </div>
-                    <p class="account">Don't have an account? <a href="#"><span class="login-span">Register</span></a>
+                    <p class="account">Don't have an account? <a href="#" class="login-link" id="register-box-link" ><span class="login-span">Register</span></a>
                     </p>
                 </form>
                 <form class="email-signup">
@@ -85,9 +85,9 @@
                         <input class="input-box" placeholder="">
                     </div>
                     <div class="reg-btn-block" style="margin-top: 20px;">
-                        <a href="./errands.html" class="btn-reg">Register</a>
+                        <a href="#" id="myBtn3" class="btn-reg">Register</a>
                     </div>
-                    <p class="account1" style="margin-top: 20px;">Already registered <a href="#"><span
+                    <p class="account1" style="margin-top: 20px;">Already registered <a href="./errands.html"><span
                                 class="register-span">Login</span></a></p>
             </div>
 
@@ -103,10 +103,34 @@
         </div>
         </div>
         </div>
+        <div class="modal fade" id="myModal3" role="dialog">
+            <div class="modal-dialog bid-request">
 
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header bid-request">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <h4>A link has been sent to your email</h4>
+                        <p>Kindly confirm to login</p>
+                    </div>
+                    <div class="modal-footer bid-request">
+                        <button type="button" class="btn btn-lg btn-primary" data-dismiss="modal">Okay</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
         <script src="./js/jquery-3.4.1.js"></script>
         <script src="./js/bootstrap.min.js"></script>
         <script src="./js/script.js"></script>
+        <script>
+            $("#myBtn3").click(function (e) {
+                e.preventDefault()
+                $("#myModal3").modal({ backdrop: "static" });
+            });
+        </script>
     </body>
 
 </html>
