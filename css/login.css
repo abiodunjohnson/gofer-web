@@ -60,8 +60,8 @@ body {
 
   .login-link:hover {
    text-decoration: none;
-   
   }
+
 
   .login-link.active {
     text-decoration: none;
@@ -78,7 +78,7 @@ body {
 
   .input-box {
     width: 30rem;
-    padding: .7rem 8rem;
+    padding: .7rem 1rem;
     border: 1px solid #c5eaf8;
 }
   
